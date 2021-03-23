@@ -117,10 +117,10 @@ namespace Ship_waR
                     {
                         symbol = '|';
                     }
-                    //if (symbol == '!')
-                    //{
-                    //    symbol = '.';
-                    //}
+                    if (symbol == '!')
+                    {
+                        symbol = '.';
+                    }
                     Console.Write(symbol);
                 }
                 Console.WriteLine();
@@ -128,7 +128,6 @@ namespace Ship_waR
         }
         public static void Shoot(int height,int width,char bullet)
         {
-            
             GridGeneration.UpdateField();
             ShootInAI(height,width,bullet);
             if (bullet == '#' && !GameCycle.isgameEnded)
@@ -136,7 +135,6 @@ namespace Ship_waR
                 PlayerInteraction.Attack();
                 Logic.wasHittedFromPlayer();
             }
-            
         }
         public static void ShootInAI(int height,int width,char bullet)
         {
@@ -164,10 +162,10 @@ namespace Ship_waR
                     {
                         symbol = '|';
                     }
-                    // if(symbol == '!')
-                    //{
-                    //   symbol = '.';
-                    //}
+                    if (symbol == '!')
+                    {
+                        symbol = '.';
+                    }
                     if (height == i && width == j)
                     {
                         symbol = bullet;
@@ -185,7 +183,6 @@ namespace Ship_waR
             for (int i = 0; i < height; i++)
             {
                 number++;
-
 
                 for (int j = 0; j < width; j++)
                 {
@@ -206,8 +203,6 @@ namespace Ship_waR
                 Console.WriteLine();
             }
         }
-
-
         public static void DrawAI(int[] height, int width, int size)
         {
             int numberToChar = 63;
@@ -238,7 +233,6 @@ namespace Ship_waR
 
                     }
                     Console.Write(symbol);
-
                 }
                 Console.WriteLine();
             }
@@ -280,7 +274,6 @@ namespace Ship_waR
             for (int i = 0; i < quantity; i++)
             {
             TryToCreateShip(2, rand.Next(1, 10));
-                //
             }
         }
         public static int[] GenerateCoordinates(int size)
@@ -300,10 +293,6 @@ namespace Ship_waR
             if(CanCreateShip(width, height, size))
             {
                 GenerateShip(size, height, width);
-            }
-            else
-            {
-                
             }
         }
 
@@ -369,12 +358,9 @@ namespace Ship_waR
             for (int i = 0; i < height; i++)
             {
                 number++;
-               
-
                 for (int j = 0; j < width; j++)
                 {
                     numberToChar++;
-
 
                     symbol = '.';
                     if (i == 0 && j >= 1)
@@ -403,7 +389,6 @@ namespace Ship_waR
                   {
                     numberToChar++;
 
-
                     symbol = '.';
                     if (i == 0 && j >= 1)
                     {
@@ -417,11 +402,9 @@ namespace Ship_waR
                     {
                         field[i, j] = '!';
                         symbol = '!';
-                        f++;
-                        
+                        f++;             
                     }
-                    Console.Write(symbol);
-                    
+                    Console.Write(symbol); 
                   }
               Console.WriteLine();
             }
@@ -535,7 +518,6 @@ namespace Ship_waR
             WriteASentence(ConsoleColor.Cyan, "First,who destroyed all of ships - wins!");
             Console.WriteLine();
             WriteASentence(ConsoleColor.Cyan, "Type 'start' to start the game");
-           // WriteASentence(ConsoleColor.Cyan, "Your grid was generated.Generating enemy grid in 5 sec");
         }
         public static void WriteASentence(ConsoleColor color, string text)
         {
@@ -563,13 +545,10 @@ namespace Ship_waR
                         {
                             GridGenerationAI.Shoot(i, j, '^');
                             UI.WriteASentence(ConsoleColor.Cyan, "You havent hit!");
-                        }
-                        
-                    }
-                        
+                        }             
+                    }         
                 }
             }
-
         }
         public static void wasHittedFromAI()
         {
@@ -589,7 +568,6 @@ namespace Ship_waR
                             GridGeneration.Shoot(i, j, '^');
                             UI.WriteASentence(ConsoleColor.Cyan, "Enemy havent hit!");
                         }
-
                     }
 
                 }
@@ -599,36 +577,6 @@ namespace Ship_waR
     }
     class EndOfGame
     {
-        private static int playerShipCounter;
-        private static int aiShipCounter;
-        //public static void CountPlayerShips()
-        //{
-        //    for (int i = 0; i < GridGeneration.height; i++)
-        //    {
-        //        for (int j = 0; j < GridGeneration.width; j++)
-        //        {
-        //            if(GridGeneration.field[i,j] == '!')
-        //            {
-        //                playerShipCounter++;
-        //            }
-        //        }
-                
-        //    }
-        //}
-        //public static void CountAIShips()
-        //{
-        //    for (int i = 0; i < GridGeneration.height; i++)
-        //    {
-        //        for (int j = 0; j < GridGeneration.width; j++)
-        //        {
-        //            if (GridGenerationAI.field[i, j] == '!')
-        //            {
-        //                aiShipCounter++;
-        //            }
-        //        }
-
-        //    }
-        //}
         public static void IfPlayerWon()
         {
             for (int i = 0; i < GridGeneration.height; i++)
@@ -691,7 +639,6 @@ namespace Ship_waR
             AIStart();
             GridGeneration.UpdateField();
             GridGenerationAI.UpdateFieldAI();
-
         }
         public static void GameProcess()
         {
@@ -733,11 +680,9 @@ namespace Ship_waR
     }
 
     class Game
-    {
-        
+    {  
         static void Main(string[] args)
         {
-           
            GameCycle.StartGame();
            GameCycle.GameProcess();
         }
