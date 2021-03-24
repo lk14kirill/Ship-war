@@ -10,7 +10,6 @@ namespace Ship_waR
             for (int i = 0; i < quantity; i++)
             {
                 TryToCreateShip(2, rand.Next(1, 10));
-                //
             }
         }
         public static int[] GenerateCoordinates(int size)
@@ -31,12 +30,7 @@ namespace Ship_waR
             {
                 GenerateShip(size, height, width);
             }
-            else
-            {
-
-            }
         }
-
         public static bool CanCreateShip(int width, int[] height, int size)
         {
             for (int i = 0; i < GridGeneration.height && size > 0; i++)
@@ -62,7 +56,6 @@ namespace Ship_waR
             Ship ship = new Ship(size, height, width);
             GridGenerationAI.DrawAI(height, width, size);
         }
-
     }
     class GridGenerationAI
     {
@@ -89,8 +82,6 @@ namespace Ship_waR
                 }
                 field[i, 0] = (char)numberToChar;
             }
-            Random rand = new Random();
-
         }
         public static void UpdateFieldAI()
         {
@@ -102,7 +93,6 @@ namespace Ship_waR
                 number++;
                 for (int j = 0; j < width; j++)
                 {
-                    symbol = '.';
                     numberToChar++;
                     symbol = field[i, j];
                     if (i == 0 && j >= 1)
@@ -146,7 +136,6 @@ namespace Ship_waR
                 number++;
                 for (int j = 0; j < GridGeneration.width; j++)
                 {
-                    symbol = '.';
                     numberToChar++;
 
                     symbol = field[i, j];
@@ -170,33 +159,6 @@ namespace Ship_waR
                     {
                         symbol = bullet;
                         field[i, j] = bullet;
-                    }
-                    Console.Write(symbol);
-                }
-                Console.WriteLine();
-            }
-        }
-        public static void DrawAI()
-        {
-            int numberToChar = 63;
-            int number = 47;
-            for (int i = 0; i < height; i++)
-            {
-                number++;
-
-                for (int j = 0; j < width; j++)
-                {
-                    numberToChar++;
-
-
-                    symbol = '.';
-                    if (i == 0 && j >= 1)
-                    {
-                        symbol = (char)numberToChar;
-                    }
-                    if (i >= 1 && j == 0)
-                    {
-                        symbol = (char)number;
                     }
                     Console.Write(symbol);
                 }
@@ -321,7 +283,6 @@ namespace Ship_waR
             Ship ship = new Ship(size,height , width);
             GridGeneration.Draw(height, width, size);
         }
-      
     }
     class GridGeneration
     {
@@ -348,35 +309,7 @@ namespace Ship_waR
                 }
                 field[i, 0] = (char)numberToChar;
             }
-            Random rand = new Random();
-            
         }
-        public static void Draw()
-        {
-          int numberToChar = 63;
-          int number = 47;
-            for (int i = 0; i < height; i++)
-            {
-                number++;
-                for (int j = 0; j < width; j++)
-                {
-                    numberToChar++;
-
-                    symbol = '.';
-                    if (i == 0 && j >= 1)
-                    {
-                        symbol = (char)numberToChar;
-                    }
-                    if (i >= 1 && j == 0)
-                    {
-                        symbol = (char)number;
-                    }
-                    Console.Write(symbol);
-                }
-                Console.WriteLine();
-            }
-        }
-     
         public static void Draw(int[] height,int width,int size)
         {
             int numberToChar = 63;
@@ -420,11 +353,9 @@ namespace Ship_waR
                 AIInteraction.Attack();
                 Logic.wasHittedFromAI();
             }
-            
         }
         public static void ShootInPlayer(int height, int width, char bullet)
         {
-            //Console.WriteLine();
             int numberToChar = 63;
             int number = 47;
             for (int i = 0; i < GridGeneration.height - 2; i++)
@@ -432,7 +363,6 @@ namespace Ship_waR
                 number++;
                 for (int j = 0; j < GridGeneration.width; j++)
                 {
-                    symbol = '.';
                     numberToChar++;
 
                     symbol = field[i, j];
