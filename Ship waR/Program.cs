@@ -608,7 +608,6 @@ namespace Ship_waR
             return _isGameEnded;
         }
     }
-
     class Game
     {  
         static void Main(string[] args)
@@ -617,5 +616,4 @@ namespace Ship_waR
            GameCycle.GameProcess();
         }
     }
-
 }
