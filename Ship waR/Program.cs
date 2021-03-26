@@ -33,7 +33,7 @@ namespace Ship_waR
         }
         public static bool CanCreateShip(int width, int[] height, int size)
         {
-            for (int i = 0; i < GridGeneration.height && size > 0; i++)
+            for (int y = 0; y < GridGeneration.height && size > 0; y++)
             {
                 if (GridGeneration.field[height[size - 1], width] != '.')
                 {
@@ -66,21 +66,21 @@ namespace Ship_waR
         #region AIGeneration
         public static void GenerateFieldAI()
         {
-            for (int i = 0; i < height; i++)
+            for (int y = 0; y < height; y++)
             {
 
                 int numberToChar = 64;
                 numberToChar++;
 
-                for (int j = 0; j < width; j++)
+                for (int x = 0; x < width; x++)
                 {
                     symbol = '.';
-                    if (i != 0 && j != 0)
+                    if (y != 0 && x != 0)
                     {
-                        field[i, j] = symbol;
+                        field[y, x] = symbol;
                     }
                 }
-                field[i, 0] = (char)numberToChar;
+                field[y, 0] = (char)numberToChar;
             }
         }
         public static void UpdateFieldAI()
@@ -88,22 +88,22 @@ namespace Ship_waR
             Console.WriteLine();
             int numberToChar = 63;
             int number = 47;
-            for (int i = 0; i < height - 2; i++)
+            for (int y = 0; y < height - 2; y++)
             {
                 number++;
-                for (int j = 0; j < width; j++)
+                for (int x = 0; x < width; x++)
                 {
                     numberToChar++;
-                    symbol = field[i, j];
-                    if (i == 0 && j >= 1)
+                    symbol = field[y, x];
+                    if (y == 0 && x >= 1)
                     {
                         symbol = (char)numberToChar;
                     }
-                    if (i >= 1 && j == 0)
+                    if (y >= 1 && x == 0)
                     {
                         symbol = (char)number;
                     }
-                    if (j == 10)
+                    if (x == 10)
                     {
                         symbol = '|';
                     }
@@ -131,23 +131,23 @@ namespace Ship_waR
             Console.WriteLine();
             int numberToChar = 63;
             int number = 47;
-            for (int i = 0; i < GridGeneration.height - 2; i++)
+            for (int y = 0; y < GridGeneration.height - 2; y++)
             {
                 number++;
-                for (int j = 0; j < GridGeneration.width; j++)
+                for (int x = 0; x < GridGeneration.width; x++)
                 {
                     numberToChar++;
 
-                    symbol = field[i, j];
-                    if (i == 0 && j >= 1)
+                    symbol = field[y, x];
+                    if (y == 0 && x >= 1)
                     {
                         symbol = (char)numberToChar;
                     }
-                    if (i >= 1 && j == 0)
+                    if (y >= 1 && x == 0)
                     {
                         symbol = (char)number;
                     }
-                    if (j == 10)
+                    if (x == 10)
                     {
                         symbol = '|';
                     }
@@ -155,10 +155,10 @@ namespace Ship_waR
                     {
                         symbol = '.';
                     }
-                    if (height == i && width == j)
+                    if (height == y && width == x)
                     {
                         symbol = bullet;
-                        field[i, j] = bullet;
+                        field[y, x] = bullet;
                     }
                     Console.Write(symbol);
                 }
@@ -170,26 +170,26 @@ namespace Ship_waR
             int numberToChar = 63;
             int number = 47;
             int f = 0;
-            for (int i = 0; i < GridGeneration.height - size; i++)
+            for (int y = 0; y < GridGeneration.height - size; y++)
             {
                 number++;
-                for (int j = 0; j < GridGeneration.width; j++)
+                for (int x = 0; x < GridGeneration.width; x++)
                 {
                     numberToChar++;
 
 
                     symbol = '.';
-                    if (i == 0 && j >= 1)
+                    if (y == 0 && x >= 1)
                     {
                         symbol = (char)numberToChar;
                     }
-                    if (i >= 1 && j == 0)
+                    if (y >= 1 && x == 0)
                     {
                         symbol = (char)number;
                     }
-                    if (f < size && height[f] == i && width == j)
+                    if (f < size && height[f] == y && width == x)
                     {
-                        field[i, j] = '!';
+                        field[y, x] = '!';
                         symbol = '!';
                         f++;
 
@@ -260,7 +260,7 @@ namespace Ship_waR
 
         public static bool CanCreateShip(int width,int[] height,int size)
         {
-            for (int i = 0; i < GridGeneration.height && size > 0 ; i++)
+            for (int y = 0; y < GridGeneration.height && size > 0 ; y++)
             {
                 if(GridGeneration.field[height[size - 1],width] != '.')
                 {
@@ -293,21 +293,21 @@ namespace Ship_waR
         #region PlayerGeneration
         public static void GenerateField()
         {
-            for (int i = 0; i < height; i++)
+            for (int y = 0; y < height; y++)
             {
                 
                 int numberToChar = 64;
                 numberToChar++;
 
-                for (int j = 0; j < width; j++)
+                for (int x = 0; x < width; x++)
                 {
                     symbol = '.';
-                    if (i != 0 && j != 0)
+                    if (y != 0 && x != 0)
                     {
-                        field[i, j] = symbol;
+                        field[y, x] = symbol;
                     }
                 }
-                field[i, 0] = (char)numberToChar;
+                field[y, 0] = (char)numberToChar;
             }
         }
         public static void Draw(int[] height,int width,int size)
@@ -315,25 +315,25 @@ namespace Ship_waR
             int numberToChar = 63;
             int number = 47;
             int f = 0;
-            for (int i = 0; i < GridGeneration.height - size  ; i++)
+            for (int y = 0; y < GridGeneration.height - size  ; y++)
             {
                 number++;
-                  for (int j = 0;  j < GridGeneration.width; j++)
+                  for (int x = 0;  x < GridGeneration.width; x++)
                   {
                     numberToChar++;
 
                     symbol = '.';
-                    if (i == 0 && j >= 1)
+                    if (y == 0 && x >= 1)
                     {
                         symbol = (char)numberToChar;
                     }
-                    if (i >= 1 && j == 0)
+                    if (y >= 1 && x == 0)
                     {
                         symbol = (char)number;
                     }
-                    if ( f < size && height[f] == i && width == j )
+                    if ( f < size && height[f] == y && width == x )
                     {
-                        field[i, j] = '!';
+                        field[y, x] = '!';
                         symbol = '!';
                         f++;             
                     }
@@ -358,30 +358,30 @@ namespace Ship_waR
         {
             int numberToChar = 63;
             int number = 47;
-            for (int i = 0; i < GridGeneration.height - 2; i++)
+            for (int y = 0; y < GridGeneration.height - 2; y++)
             {
                 number++;
-                for (int j = 0; j < GridGeneration.width; j++)
+                for (int x = 0; x < GridGeneration.width; x++)
                 {
                     numberToChar++;
 
-                    symbol = field[i, j];
-                    if (i == 0 && j >= 1)
+                    symbol = field[y, x];
+                    if (y == 0 && x >= 1)
                     {
                         symbol = (char)numberToChar;
                     }
-                    if (i >= 1 && j == 0)
+                    if (y >= 1 && x == 0)
                     {
                         symbol = (char)number;
                     }
-                    if (j == 10)
+                    if (x == 10)
                     {
                         symbol = '|';
                     }
-                    if (height == i && width == j)
+                    if (height == y && width == x)
                     {
                         symbol = bullet;
-                        field[i, j] = bullet;
+                        field[y, x] = bullet;
                     }
                     Console.Write(symbol);
                 }
@@ -393,19 +393,19 @@ namespace Ship_waR
             Console.Clear();
             int numberToChar = 63;
             int number = 47;
-            for (int i = 0; i < height - 2; i++)
+            for (int y = 0; y < height - 2; y++)
             {
                 number++;
                 for (int j = 0; j < width; j++)
                 {
                     symbol = '.';
                     numberToChar++;
-                    symbol = field[i, j];
-                    if (i == 0 && j >= 1)
+                    symbol = field[y, j];
+                    if (y == 0 && j >= 1)
                     {
                         symbol = (char)numberToChar;
                     }
-                    if (i >= 1 && j == 0)
+                    if (y >= 1 && j == 0)
                     {
                         symbol = (char)number;
                     }
@@ -460,20 +460,20 @@ namespace Ship_waR
     {
         public static void wasHittedFromPlayer()
         {
-            for (int i = 0; i < GridGeneration.height; i++)
+            for (int y = 0; y < GridGeneration.height; y++)
             {
                 for (int j = 0; j < GridGeneration.width; j++)
                 {
-                    if (PlayerInteraction.attackHeight == i && PlayerInteraction.attackWidth == j) 
+                    if (PlayerInteraction.attackHeight == y && PlayerInteraction.attackWidth == j) 
                     {
-                        if(GridGenerationAI.field[i,j] == '!')
+                        if(GridGenerationAI.field[y,j] == '!')
                         {
-                            GridGenerationAI.Shoot(i, j,'#') ;
+                            GridGenerationAI.Shoot(y, j,'#') ;
                             UI.WriteASentence(ConsoleColor.Cyan, "You ve hit!");
                         }
                         else
                         {
-                            GridGenerationAI.Shoot(i, j, '^');
+                            GridGenerationAI.Shoot(y, j, '^');
                             UI.WriteASentence(ConsoleColor.Cyan, "You havent hit!");
                         }             
                     }         
@@ -482,20 +482,20 @@ namespace Ship_waR
         }
         public static void wasHittedFromAI()
         {
-            for (int i = 0; i < GridGeneration.height; i++)
+            for (int y = 0; y < GridGeneration.height; y++)
             {
                 for (int j = 0; j < GridGeneration.width; j++)
                 {
-                    if (AIInteraction.attackHeight == i && AIInteraction.attackWidth == j)
+                    if (AIInteraction.attackHeight == y && AIInteraction.attackWidth == j)
                     {
-                        if (GridGeneration.field[i, j] == '!')
+                        if (GridGeneration.field[y, j] == '!')
                         {
-                            GridGeneration.Shoot(i, j, '#');
+                            GridGeneration.Shoot(y, j, '#');
                             UI.WriteASentence(ConsoleColor.Cyan, "Enemy have hit!");
                         }
                         else
                         {
-                            GridGeneration.Shoot(i, j, '^');
+                            GridGeneration.Shoot(y, j, '^');
                             UI.WriteASentence(ConsoleColor.Cyan, "Enemy havent hit!");
                         }
                     }
@@ -509,11 +509,11 @@ namespace Ship_waR
     {
         public static void IfPlayerWon()
         {
-            for (int i = 0; i < GridGeneration.height; i++)
+            for (int y = 0; y < GridGeneration.height; y++)
             {
                 for (int j = 0; j < GridGeneration.width; j++)
                 {
-                    if(GridGenerationAI.field[i,j] == '!')
+                    if(GridGenerationAI.field[y,j] == '!')
                     {
 
                         return;
@@ -524,11 +524,11 @@ namespace Ship_waR
         }
         public static void IfAIWon()
         {
-            for (int i = 0; i < GridGeneration.height; i++)
+            for (int y = 0; y < GridGeneration.height; y++)
             {
                 for (int j = 0; j < GridGeneration.width; j++)
                 {
-                    if (GridGeneration.field[i, j] == '!')
+                    if (GridGeneration.field[y, j] == '!')
                     {
                         return ;
                     }
